@@ -44,3 +44,16 @@ document.addEventListener('keydown', e => {
   const target = SECTION_MAP[e.key];
   if (target) document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
 });
+
+// ── THEME TOGGLE ──
+const themeBtn = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.dataset.theme = savedTheme;
+themeBtn.textContent = savedTheme === 'dark' ? '☀' : '☽';
+
+themeBtn.addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('theme', next);
+  themeBtn.textContent = next === 'dark' ? '☀' : '☽';
+});

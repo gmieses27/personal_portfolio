@@ -139,7 +139,7 @@ function drawTree(canvas, segs, season, cfg, rotY, rotX, wind, t) {
   }
   const treeH = maxY - minY || 1;
   const treeW = maxX - minX || 1;
-  const scale = Math.min(H * 0.68 / treeH, W * 0.82 / treeW / 2);
+  const scale = Math.min(H * 0.68 / treeH, W * 0.82 / treeW / 2) * zoom;
   const cx = W/2, cy = H * 0.82;
 
   // Wind offset helper
@@ -304,7 +304,7 @@ document.querySelectorAll('.sbn').forEach(btn => {
 });
 
 document.getElementById('btn-regen').addEventListener('click', start);
-document.getElementById('btn-reset-cam').addEventListener('click', () => { rotY=0.3; rotX=0.08; });
+document.getElementById('btn-reset-cam').addEventListener('click', () => { rotY=0.3; rotX=0.08; zoom=1; });
 
 // Mouse drag to rotate
 let dragging=false, lastX=0, lastY=0;
@@ -318,7 +318,11 @@ canvas.addEventListener('mousemove',  e => {
 });
 canvas.addEventListener('mouseup',   () => dragging=false);
 canvas.addEventListener('mouseleave',() => dragging=false);
-canvas.addEventListener('wheel',     e => { e.preventDefault(); }, {passive:false});
+canvas.addEventListener('wheel', e => {
+  e.preventDefault();
+  zoom *= e.deltaY > 0 ? 0.92 : 1.08;
+  zoom  = Math.max(0.2, Math.min(4, zoom));
+}, {passive:false});
 
 // Touch support
 canvas.addEventListener('touchstart', e => { if(e.touches.length===1){ dragging=true; lastX=e.touches[0].clientX; lastY=e.touches[0].clientY; } }, {passive:true});
@@ -332,7 +336,7 @@ canvas.addEventListener('touchend', () => dragging=false);
 
 // Space bar = regenerate (only when lab is visible)
 window.addEventListener('keydown', e => {
-  if (e.code==='Space' && document.getElementById('lab').getBoundingClientRect().top < window.innerHeight) {
+  if (e.code==='Space' && canvas.getBoundingClientRect().top < window.innerHeight) {
     e.preventDefault(); start();
   }
 });

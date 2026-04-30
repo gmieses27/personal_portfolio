@@ -10,6 +10,7 @@
   let dftCoeffs  = [];      // [{freq,amp,phase}] sorted amp desc
   let ghostPath  = [];      // centered coords of resampled path
   let trail      = [];      // tip positions for drawing the trace
+  let trailAcc   = 0;       // fractional accumulator — keeps trail density constant across speeds
   let animT      = 0;       // [0,1) phase through one full cycle
   let animReq    = null;
   let isDrawing  = false;
@@ -18,6 +19,7 @@
   let circleCount = 64;
   let animSpeed   = 1.0;
   let showCircles = true;
+  let showGhost   = true;
   let fadeTrail   = true;
 
   // ── Resize canvas to CSS size ──
@@ -116,7 +118,7 @@
     drawGrid();
 
     // Ghost (original drawing, dashed)
-    if (ghostPath.length > 1) {
+    if (showGhost && ghostPath.length > 1) {
       ctx.save();
       ctx.strokeStyle = 'rgba(92,168,255,0.14)';
       ctx.lineWidth   = 1.5;
@@ -144,14 +146,14 @@
       const ny = cy + amp * Math.sin(angle);
 
       if (showCircles) {
-        // Circle outline (opacity scales with amp)
         ctx.save();
-        ctx.strokeStyle = `rgba(92,168,255,${Math.min(0.28, amp / 40)})`;
-        ctx.lineWidth   = 0.5;
+        // Circle outline — visible floor so even small circles read clearly
+        ctx.strokeStyle = `rgba(92,168,255,${Math.max(0.12, Math.min(0.6, amp / 22))})`;
+        ctx.lineWidth   = 1.2;
         ctx.beginPath(); ctx.arc(cx, cy, amp, 0, Math.PI*2); ctx.stroke();
         // Arm
-        ctx.strokeStyle = `rgba(255,208,0,${Math.min(0.65, amp / 20)})`;
-        ctx.lineWidth   = 0.8;
+        ctx.strokeStyle = `rgba(255,208,0,${Math.max(0.25, Math.min(0.9, amp / 14))})`;
+        ctx.lineWidth   = 1.2;
         ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(nx, ny); ctx.stroke();
         ctx.restore();
       }
@@ -159,10 +161,12 @@
       cx = nx; cy = ny;
     }
 
-    // Trail
-    trail.push({ x: cx, y: cy });
-    const maxTrail = Math.max(N, 256);
-    if (trail.length > maxTrail) trail.shift();
+    // Trail — accumulator keeps point density constant regardless of speed
+    trailAcc += animSpeed;
+    if (trailAcc >= 1) {
+      trailAcc -= 1;
+      trail.push({ x: cx, y: cy });
+    }
 
     for (let i = 1; i < trail.length; i++) {
       const a = fadeTrail ? (i / trail.length) * 0.9 : 0.85;
@@ -181,8 +185,10 @@
     ctx.beginPath(); ctx.arc(cx, cy, 3.5, 0, Math.PI*2); ctx.fill();
     ctx.restore();
 
-    // Advance time — one full cycle takes N / animSpeed frames
+    // Advance time; on cycle wrap → clear trail and reset accumulator
+    const prevT = animT;
     animT = (animT + animSpeed / N) % 1;
+    if (animT < prevT) { trail = []; trailAcc = 0; }
     animReq = requestAnimationFrame(renderAnimate);
   }
 
@@ -198,6 +204,7 @@
     dftCoeffs = computeDFT(centered);
     ghostPath = centered;
     trail     = [];
+    trailAcc  = 0;
     animT     = 0;
     mode      = 'animate';
     canvas.classList.add('animating');
@@ -208,12 +215,15 @@
 
   // ── Clear everything, go back to draw mode ──
   function clearAll() {
-    if (animReq) { cancelAnimationFrame(animReq); animReq = null; }
+    cancelAnimationFrame(animReq);   // safe even if animReq is null
+    animReq   = null;
+    isDrawing = false;
     rawPts = []; dftCoeffs = []; trail = []; ghostPath = [];
-    animT  = 0;
+    animT = 0; trailAcc = 0;
     mode   = 'draw';
     canvas.classList.remove('animating');
     updateModeUI();
+    resize();        // ensures canvas.width/height are current before clearing
     renderDraw();
   }
 
@@ -259,8 +269,8 @@
 
   function makeTrefoil(scale) {
     const pts = [], N = 210;
-    for (let i = 0; i < N; i++) {
-      const t = Math.PI * i / N; // t in [0, π] for a closed 3-petal rose
+    for (let i = 0; i <= N; i++) {          // <= N so t reaches exactly π (closed)
+      const t = Math.PI * i / N;
       const r = Math.cos(3 * t);
       pts.push({ x: scale * r * Math.cos(t), y: scale * r * Math.sin(t) });
     }
@@ -323,8 +333,9 @@
 
   const sSlider = document.getElementById('ctrl-f-speed');
   if (sSlider) sSlider.addEventListener('input', () => {
-    animSpeed = +sSlider.value;
+    animSpeed = parseFloat(sSlider.value);
     document.getElementById('lbl-f-speed').textContent = animSpeed.toFixed(1) + 'x';
+    trail = []; trailAcc = 0;
   });
 
   document.getElementById('btn-f-circles')?.addEventListener('click', function() {
@@ -337,6 +348,12 @@
     fadeTrail = !fadeTrail;
     this.classList.toggle('on', fadeTrail);
     this.textContent = fadeTrail ? 'FADE: ON' : 'FADE: OFF';
+  });
+
+  document.getElementById('btn-f-ghost')?.addEventListener('click', function() {
+    showGhost = !showGhost;
+    this.classList.toggle('on', showGhost);
+    this.textContent = showGhost ? 'GHOST: ON' : 'GHOST: OFF';
   });
 
   // ── Lazy activation via IntersectionObserver ──
