@@ -1,584 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gabriel Mieses // Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriel Mieses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
-<div class="scanlines"></div>
-<div class="cursor-bloom" id="bloom"></div>
-
-<!-- Boot Screen -->
-<div id="boot">
-  <div id="boot-text"></div>
-  <div id="boot-skip">[ CLICK OR PRESS ANY KEY TO SKIP ]</div>
-</div>
-
-<!-- Keyboard hints -->
-<div class="keyhint-strip">
-  <span>↑↓ NAVIGATE</span>
-  <span>1-5 JUMP</span>
-</div>
-
-<!-- Nav -->
-<nav id="main-nav">
-  <div class="nav-logo">GM</div>
+<!-- ── NAV ── -->
+<nav>
+  <a href="#hero" class="nav-logo">GM</a>
   <ul class="nav-links">
-    <li><a href="#hero"     data-s="hero"><span class="kb">1</span>HOME</a></li>
-    <li><a href="#projects" data-s="projects"><span class="kb">2</span>PROJECTS</a></li>
-    <li><a href="#lab"      data-s="lab"><span class="kb">3</span>LAB</a></li>
-    <li><a href="#skills"   data-s="skills"><span class="kb">4</span>SKILLS</a></li>
-    <li><a href="#about"    data-s="about"><span class="kb">5</span>ABOUT</a></li>
-    <li><a href="#contact"  data-s="contact"><span class="kb">6</span>CONTACT</a></li>
+    <li><a href="#experience">WORK</a></li>
+    <li><a href="#projects">PROJECTS</a></li>
+    <li><a href="#education">EDUCATION</a></li>
+    <li><a href="#demos">DEMOS</a></li>
+    <li><a href="#contact">CONTACT</a></li>
   </ul>
-  <div class="nav-status"><div class="dot"></div><span>AVAILABLE FOR HIRE</span></div>
+  <div class="nav-status">
+    <span class="status-dot green"></span>DATADOG · SWE INTERN · SU'26
+  </div>
 </nav>
 
-<!-- ═══════════════ HERO ═══════════════ -->
+<!-- ══════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════ -->
 <section id="hero">
-  <div class="hero-badge">// PLAYER ONE HAS ENTERED THE GAME</div>
-  <h1 class="hero-name">GABRIEL<br><span class="hi">MIESES</span></h1>
-  <div class="hero-role"><span id="typed"></span></div>
-  <div class="hero-stats">
-    <div class="hs"><div class="hs-val">16+</div><div class="hs-lbl">Projects</div></div>
-    <div class="hs-sep"></div>
-    <div class="hs"><div class="hs-val">5+</div><div class="hs-lbl">Languages</div></div>
-    <div class="hs-sep"></div>
-    <div class="hs"><div class="hs-val">∞</div><div class="hs-lbl">Curiosity</div></div>
+  <div class="hero-inner">
+
+    <div class="hero-left">
+      <div class="hero-label">CS + STATISTICS @ COLUMBIA UNIVERSITY</div>
+      <h1>Gabriel<br><span>Mieses</span></h1>
+      <p class="hero-desc">
+        I build software that ships — from ML pipelines hitting 96% accuracy,
+        to full-stack platforms serving 1,300+ users,
+        to real-time 3D graphics engines in C++.
+        Incoming SWE Intern on the Access Enforcement team at Datadog, Summer 2026.
+        Junior at Columbia studying CS and Statistics.
+      </p>
+      <div class="hero-links">
+        <a href="https://github.com/gmieses27" target="_blank" class="btn btn-primary">GitHub</a>
+        <a href="https://linkedin.com/in/gabriel-mieses" target="_blank" class="btn btn-secondary">LinkedIn</a>
+        <a href="mailto:gabrielmieses99@gmail.com" class="btn btn-ghost">Email</a>
+      </div>
+    </div>
+
+    <!-- Sidebar — player profile card -->
+    <div class="hero-card">
+      <div class="card-label">PLAYER PROFILE</div>
+      <div class="card-name">GABRIEL</div>
+      <div class="card-class">Full-Stack + ML + Systems</div>
+      <div class="stat"><span class="stat-key">SCHOOL</span><span class="stat-val">Columbia '27</span></div>
+      <div class="stat"><span class="stat-key">MAJOR</span><span class="stat-val">CS + Statistics</span></div>
+      <div class="stat"><span class="stat-key">LAST ROLE</span><span class="stat-val green">Liberty Mutual</span></div>
+      <div class="stat"><span class="stat-key">STACK</span><span class="stat-val">Python · React · C++</span></div>
+      <div class="stat"><span class="stat-key">GITHUB</span><span class="stat-val">gmieses27</span></div>
+      <div class="stat"><span class="stat-key">NEXT ROLE</span><span class="stat-val yellow">Datadog SWE '26</span></div>
+    </div>
+
   </div>
-  <div class="hero-cta">
-    <a href="#projects" class="btn btn-g" id="view-proj">VIEW PROJECTS</a>
-    <a href="https://github.com/gmieses27" target="_blank" class="btn btn-c">GITHUB</a>
-    <a href="mailto:gabrielmieses99@gmail.com" class="btn btn-p">EMAIL ME</a>
-  </div>
-  <div class="scroll-hint"><span>SCROLL DOWN</span><div class="scroll-arrow"></div></div>
 </section>
 
-<!-- ═══════════════ PROJECTS ═══════════════ -->
+<!-- ══════════════════════════════════════════
+     EXPERIENCE
+     What it shows a recruiter: professional
+     validation and real-world impact.
+     ══════════════════════════════════════════ -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="chapter-label">01 — WORK EXPERIENCE</span>
+      <h2>Where I've Shipped</h2>
+      <p class="section-desc">Internships where I built real things used by real people.</p>
+    </div>
+
+    <div class="exp-grid">
+
+      <!-- Datadog (upcoming) -->
+      <div class="exp-card rv upcoming">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Datadog</div>
+            <div class="exp-role">Software Engineer Intern — Access Enforcement</div>
+          </div>
+          <div class="exp-dates">Summer 2026<br>New York, NY</div>
+        </div>
+        <p class="exp-upcoming-note">Incoming intern on the team responsible for authorization across Datadog's platform — the enforcement layer that controls what every user, agent, and API key can read or modify.</p>
+        <div class="tag-row">
+          <span class="tag purple">Go</span>
+          <span class="tag purple">Python</span>
+          <span class="tag purple">Kubernetes</span>
+          <span class="tag purple">PostgreSQL</span>
+          <span class="tag purple">RBAC</span>
+        </div>
+      </div>
+
+      <!-- Liberty Mutual -->
+      <div class="exp-card rv">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Liberty Mutual</div>
+            <div class="exp-role">TechStart Intern</div>
+          </div>
+          <div class="exp-dates">May – Aug 2025<br>Boston, MA</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Built React + TypeScript front-ends for internal ML experimentation and competitive intelligence tools, supporting ~300 users across strategy, compliance, and data teams</li>
+          <li>Built a semantic search engine with vector databases, reducing regulatory filing lookup time by <strong>98%</strong></li>
+          <li>Integrated RAG components to support GenAI document intelligence applications</li>
+          <li>Deployed AWS IMDSv2 across environments to strengthen instance metadata security</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag blue">React</span>
+          <span class="tag blue">TypeScript</span>
+          <span class="tag blue">AWS</span>
+          <span class="tag blue">RAG</span>
+          <span class="tag blue">Vector DB</span>
+        </div>
+      </div>
+
+      <!-- ViableEdu -->
+      <div class="exp-card rv">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">ViableEdu</div>
+            <div class="exp-role">Fintech Apprentice</div>
+          </div>
+          <div class="exp-dates">May – Jul 2024<br>Remote</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Researched alternative data applications in financial risk modeling and credit scoring</li>
+          <li>Built Python tools to simulate portfolio performance and budget optimization, enhancing data-driven workflows</li>
+          <li>Collaborated with fintech professionals exploring AI and blockchain for financial inclusion</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag green">Python</span>
+          <span class="tag green">Data Analysis</span>
+          <span class="tag green">Fintech</span>
+          <span class="tag green">Financial Modeling</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PROJECTS
+     What it shows a recruiter: concrete proof
+     of skills — not a list of buzzwords.
+     ══════════════════════════════════════════ -->
 <section id="projects">
-  <div class="sec-hd rv">
-    <div class="sec-tag">// MISSION LOGS</div>
-    <h2 class="sec-title">PROJECT<br><span>VAULT</span></h2>
-    <div class="sec-line"></div>
-  </div>
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="chapter-label">02 — PROJECTS</span>
+      <h2>Things I Built</h2>
+      <p class="section-desc">A range of what I've built — full-stack web, systems programming, and ML engineering.</p>
+    </div>
 
-  <div class="filter-bar rv">
-    <button class="fb on"  data-f="all">ALL</button>
-    <button class="fb" data-f="feat">★ FEATURED</button>
-    <button class="fb" data-f="full">FULL-STACK</button>
-    <button class="fb" data-f="game">GAME DEV</button>
-    <button class="fb" data-f="ai">AI / ML</button>
-    <button class="fb" data-f="mob">MOBILE</button>
-  </div>
+    <div class="proj-grid">
 
-  <div class="proj-grid" id="pgrid">
-
-    <!-- SPOTLIGHT: DATADOG -->
-    <div class="pc spot rv" data-c="feat full">
-      <div>
-        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--pink);letter-spacing:3px;margin-bottom:14px;text-shadow:1px 1px 0 rgba(0,0,0,0.6)">★ PROFESSIONAL // INTERNSHIP</div>
-        <div class="pc-title">Datadog — Access Enforcement</div>
-        <p class="pc-desc">Interned at Datadog building the access enforcement layer — determining who can see what across every API call, query, and data surface. Owned enforcement pipelines end-to-end on a high-impact security team.</p>
-        <div class="pc-stack">
-          <span class="tag c">Go</span>
-          <span class="tag c">Python</span>
-          <span class="tag c">Kubernetes</span>
-          <span class="tag c">PostgreSQL</span>
+      <!-- Plant Generation Engine — featured because it has a live demo -->
+      <div class="proj-card featured rv">
+        <div class="proj-badge">★ FEATURED — Live Demo in Demos Section</div>
+        <div class="proj-title">Procedural Plant Generation Engine</div>
+        <p class="proj-desc">
+          Parametric L-system engine in C++ generating complex 2D/3D plant geometries.
+          Built a 3D turtle graphics interpreter with quaternion rotations, 8-way branching,
+          and tropism simulation. Real-time OpenGL rendering at 60 FPS with 90K+ vertices
+          per plant and live parameter tuning via ImGui.
+        </p>
+        <div class="tag-row">
+          <span class="tag yellow">C++17</span>
+          <span class="tag yellow">OpenGL</span>
+          <span class="tag yellow">ImGui</span>
+          <span class="tag yellow">GLM</span>
+          <span class="tag yellow">Procedural Gen</span>
         </div>
-        <div class="pc-links">
-          <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--pink);letter-spacing:1px;text-shadow:1px 1px 0 rgba(0,0,0,0.5)">★ FEATURED WORK</span>
-        </div>
-      </div>
-      <div class="vis">
-        <div class="vis-scan"></div>
-        <pre>enforce_access(user, resource)
-  ↳ check_policy(rbac, abac)
-  ↳ validate_scope(api_call)
-  ↳ log_audit_event()
-  ↳ [AUTHORIZED ✓]</pre>
-      </div>
-    </div>
-
-    <!-- BULLET HELL RPG -->
-    <div class="pc alt rv" data-c="feat game">
-      <div style="display:flex;align-items:center;margin-bottom:14px">
-        <span class="pc-cat" style="margin-bottom:0">GAME DEV</span>
-        <span class="pc-badge">★ FEATURED</span>
-      </div>
-      <div class="pc-title">Bullet Hell RPG</div>
-      <p class="pc-desc">Browser-based bullet hell RPG with a client/server split. Client handles game rendering and input; server manages game state and multiplayer logic in real time.</p>
-      <div class="pc-stack">
-        <span class="tag">JavaScript</span>
-        <span class="tag">Canvas API</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">WebSockets</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- CHESS FULL-STACK -->
-    <div class="pc rv" data-c="feat full">
-      <div style="display:flex;align-items:center;margin-bottom:14px">
-        <span class="pc-cat" style="margin-bottom:0">FULL-STACK</span>
-        <span class="pc-badge">★ FEATURED</span>
-      </div>
-      <div class="pc-title">Chess — Full Stack</div>
-      <p class="pc-desc">Complete full-stack chess implementation — full game logic, move validation, real-time multiplayer via WebSockets, and persistent match history.</p>
-      <div class="pc-stack">
-        <span class="tag">Java</span>
-        <span class="tag">Spring Boot</span>
-        <span class="tag">React</span>
-        <span class="tag">WebSockets</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- PAC-MAN REACT -->
-    <div class="pc rv" data-c="game">
-      <span class="pc-cat">GAME DEV</span>
-      <div class="pc-title">Pac-Man — React</div>
-      <p class="pc-desc">Classic Pac-Man rebuilt entirely in React — ghost AI, animated maze, score tracking, lives system, and smooth keyboard controls.</p>
-      <div class="pc-stack">
-        <span class="tag">React</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">CSS Animations</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- NODE WARS -->
-    <div class="pc rv" data-c="game full">
-      <span class="pc-cat">GAME / NETWORKING</span>
-      <div class="pc-title">Node Wars</div>
-      <p class="pc-desc">Multiplayer networking game where players compete to capture and hold distributed nodes. Built around DDI networking concepts with real-time state sync.</p>
-      <div class="pc-stack">
-        <span class="tag">Node.js</span>
-        <span class="tag">WebSockets</span>
-        <span class="tag">Networking</span>
-        <span class="tag">JavaScript</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- TEXTBOOK MARKETPLACE -->
-    <div class="pc rv" data-c="full">
-      <span class="pc-cat">FULL-STACK</span>
-      <div class="pc-title">Textbook Marketplace</div>
-      <p class="pc-desc">Peer-to-peer textbook trading platform for students — listings, search, messaging, and end-to-end transaction management.</p>
-      <div class="pc-stack">
-        <span class="tag">React</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">MongoDB</span>
-        <span class="tag">Express</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- RESUME CHECKER -->
-    <div class="pc rv" data-c="ai full">
-      <span class="pc-cat">AI / TOOL</span>
-      <div class="pc-title">Resume Checker</div>
-      <p class="pc-desc">Intelligent resume analyzer — evaluates formatting, ATS keyword match, and structure with specific, actionable improvement suggestions.</p>
-      <div class="pc-stack">
-        <span class="tag">Python</span>
-        <span class="tag">NLP</span>
-        <span class="tag">React</span>
-        <span class="tag">FastAPI</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- TEXT HUMANIZER -->
-    <div class="pc rv" data-c="ai">
-      <span class="pc-cat">AI / TOOL</span>
-      <div class="pc-title">Text Humanizer</div>
-      <p class="pc-desc">AI-powered rewriter that transforms robotic or machine-generated text into natural, human-sounding prose while preserving the original meaning.</p>
-      <div class="pc-stack">
-        <span class="tag">Python</span>
-        <span class="tag">LLM APIs</span>
-        <span class="tag">NLP</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- CITEDDOCS -->
-    <div class="pc rv" data-c="ai full">
-      <span class="pc-cat">AI / LOCAL</span>
-      <div class="pc-title">CitedDocs — Local</div>
-      <p class="pc-desc">Local-first document Q&A tool. Ask questions about your own documents and get cited answers — all on-device, no cloud required.</p>
-      <div class="pc-stack">
-        <span class="tag">Python</span>
-        <span class="tag">RAG</span>
-        <span class="tag">LlamaIndex</span>
-        <span class="tag">Electron</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- VERSEA MOBILE -->
-    <div class="pc alt rv" data-c="mob">
-      <span class="pc-cat">MOBILE</span>
-      <div class="pc-title">Versea Mobile App</div>
-      <p class="pc-desc">Cross-platform mobile app with clean UX design, REST API integrations, and native device feature access.</p>
-      <div class="pc-stack">
-        <span class="tag c">React Native</span>
-        <span class="tag c">TypeScript</span>
-        <span class="tag c">REST API</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- DREAMWORK CHRONICLES -->
-    <div class="pc rv" data-c="game">
-      <span class="pc-cat">CREATIVE / GAME</span>
-      <div class="pc-title">Dreamwork Chronicles</div>
-      <p class="pc-desc">Narrative-driven game project exploring procedural storytelling and dynamic world-building mechanics.</p>
-      <div class="pc-stack">
-        <span class="tag">JavaScript</span>
-        <span class="tag">Canvas</span>
-        <span class="tag">Procedural Gen</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- COMPUTER GRAPHICS -->
-    <div class="pc rv" data-c="game">
-      <span class="pc-cat">GRAPHICS</span>
-      <div class="pc-title">Computer Graphics</div>
-      <p class="pc-desc">Rendering pipeline from scratch — rasterization, Phong lighting, texture mapping, and GLSL shader programming using OpenGL.</p>
-      <div class="pc-stack">
-        <span class="tag">C++</span>
-        <span class="tag">OpenGL</span>
-        <span class="tag">GLSL</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- APPLIED ML -->
-    <div class="pc rv" data-c="ai">
-      <span class="pc-cat">ML / AI</span>
-      <div class="pc-title">Applied Machine Learning</div>
-      <p class="pc-desc">Classification, regression, neural nets, and model evaluation — hands-on ML implementations from scratch and with modern frameworks.</p>
-      <div class="pc-stack">
-        <span class="tag">Python</span>
-        <span class="tag">PyTorch</span>
-        <span class="tag">scikit-learn</span>
-        <span class="tag">NumPy</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- MACWALLPAPER -->
-    <div class="pc rv" data-c="full">
-      <span class="pc-cat">DESKTOP TOOL</span>
-      <div class="pc-title">macWallpaper</div>
-      <p class="pc-desc">macOS wallpaper manager and generator — automated rotation, live wallpaper support, and aesthetic background generation.</p>
-      <div class="pc-stack">
-        <span class="tag">Python</span>
-        <span class="tag">macOS API</span>
-        <span class="tag">Shell</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-    <!-- MEAT DONENESS -->
-    <div class="pc rv" data-c="full mob">
-      <span class="pc-cat">UTILITY</span>
-      <div class="pc-title">Meat Doneness App</div>
-      <p class="pc-desc">The app you didn't know you needed — precise temperature-to-doneness guide with timer, cut selector, and cook-method support.</p>
-      <div class="pc-stack">
-        <span class="tag">React</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">CSS</span>
-      </div>
-      <div class="pc-links">
-        <a href="https://github.com/gmieses27" target="_blank" class="pc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.57v-2.23c-3.02.55-3.8-.73-4.04-1.41-.13-.34-.72-1.41-1.23-1.7-.42-.22-1.02-.77-.01-.79.94-.01 1.62.87 1.84 1.23 1.08 1.82 2.81 1.3 3.5.99.1-.78.42-1.3.76-1.6-2.67-.3-5.46-1.33-5.46-5.93 0-1.3.46-2.38 1.23-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.3c0 .31.22.69.83.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════ LAB ═══════════════ -->
-<section id="lab">
-  <div class="sec-hd rv">
-    <div class="sec-tag">// LIVE INTERACTIVE DEMO</div>
-    <h2 class="sec-title">PLANT<br><span>GENERATOR</span></h2>
-    <div class="sec-line"></div>
-  </div>
-  <p class="lab-credit rv">
-    Originally built in <strong>C++ / OpenGL / GLSL</strong> as a Computer Graphics final project with teammates Jason Dixon &amp; Jason Bbosa.
-    Ported here to <strong>Canvas + JavaScript</strong> — same L-System engine, same 3D turtle interpreter, running live in your browser.
-  </p>
-  <div class="lab-wrap rv">
-    <canvas id="tree-canvas"></canvas>
-    <div class="lab-panel">
-      <div class="lab-panel-title">// PARAMETERS</div>
-
-      <div class="ctrl-group">
-        <div class="ctrl-label">PRESET <span id="lbl-preset">Fractal Tree</span></div>
-        <select class="lab-select" id="ctrl-preset">
-          <option>Fractal Tree</option>
-          <option>Bushy Tree</option>
-          <option>Sparse Tree</option>
-          <option>Willow Tree</option>
-          <option>Vine</option>
-          <option>Symmetric Tree</option>
-          <option>Seaweed</option>
-          <option>Complex Tree</option>
-          <option>Binary Tree</option>
-        </select>
-      </div>
-
-      <div class="ctrl-group">
-        <div class="ctrl-label">ITERATIONS <span id="lbl-iter">5</span></div>
-        <input type="range" id="ctrl-iter" min="2" max="7" step="1" value="5">
-      </div>
-
-      <div class="ctrl-group">
-        <div class="ctrl-label">ANGLE <span id="lbl-angle">25.7°</span></div>
-        <input type="range" id="ctrl-angle" min="5" max="60" step="0.5" value="25.7">
-      </div>
-
-      <div class="ctrl-group">
-        <div class="ctrl-label">LENGTH SCALE <span id="lbl-lscale">0.80</span></div>
-        <input type="range" id="ctrl-lscale" min="0.5" max="0.99" step="0.01" value="0.80">
-      </div>
-
-      <div class="ctrl-group">
-        <div class="ctrl-label">RANDOMNESS <span id="lbl-rand">0.10</span></div>
-        <input type="range" id="ctrl-rand" min="0" max="0.5" step="0.01" value="0.10">
-      </div>
-
-      <div class="ctrl-divider"></div>
-
-      <div class="ctrl-group">
-        <div class="ctrl-label">WIND <span id="lbl-wind">0.30</span></div>
-        <input type="range" id="ctrl-wind" min="0" max="1.5" step="0.05" value="0.30">
-      </div>
-
-      <div class="ctrl-group">
-        <div class="ctrl-label">SEASON</div>
-        <div class="season-btns">
-          <button class="sbn spring on" data-season="spring">🌸 SPRING</button>
-          <button class="sbn summer"    data-season="summer">☀️ SUMMER</button>
-          <button class="sbn autumn"    data-season="autumn">🍂 AUTUMN</button>
-          <button class="sbn winter"    data-season="winter">❄️ WINTER</button>
+        <div class="proj-links-row">
+          <a href="#demos" class="proj-link">→ Live demo</a>
+          <a href="https://github.com/gmieses27/personal_portfolio" target="_blank" class="proj-link">→ JS source</a>
         </div>
       </div>
 
-      <div class="lab-btns">
-        <button class="lab-btn pri" id="btn-regen">REGENERATE</button>
-        <button class="lab-btn sec" id="btn-reset-cam">RESET CAM</button>
-      </div>
-
-      <div class="lab-hint">
-        DRAG  — rotate view<br>
-        SCROLL — zoom<br>
-        SPACE — new seed
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ LAB 02 — FOURIER SYNTHESIZER ═══════════════ -->
-<section id="lab2">
-  <div class="sec-hd rv">
-    <div class="sec-tag">// INTERACTIVE LAB 02</div>
-    <h2 class="sec-title">FOURIER<br><span>SYNTHESIZER</span></h2>
-    <div class="sec-line"></div>
-  </div>
-  <p class="lab-credit rv">
-    <strong>Draw any closed shape</strong> with your mouse, then watch it get re-built by
-    rotating circles — epicycles — approximating your path via the
-    <strong>Discrete Fourier Transform</strong>. Same math behind signal processing,
-    JPEG compression, and wireless communication. Made famous by 3Blue1Brown.
-  </p>
-  <div id="f-mode-indicator" class="f-mode-indicator draw rv">
-    // MODE: DRAW &nbsp;—&nbsp; Trace any shape on the canvas
-  </div>
-  <div class="lab-wrap rv">
-    <canvas id="fourier-canvas"></canvas>
-    <div class="lab-panel">
-      <div class="lab-panel-title">// PARAMETERS</div>
-
-      <div class="ctrl-group">
-        <div class="ctrl-label">CIRCLES &nbsp;<span id="lbl-f-circles">64</span></div>
-        <input type="range" id="ctrl-f-circles" min="4" max="256" step="4" value="64">
-      </div>
-
-      <div class="ctrl-group">
-        <div class="ctrl-label">SPEED &nbsp;<span id="lbl-f-speed">1.0x</span></div>
-        <input type="range" id="ctrl-f-speed" min="0.2" max="4.0" step="0.2" value="1.0">
-      </div>
-
-      <div class="ctrl-divider"></div>
-
-      <div class="ctrl-group">
-        <div class="ctrl-label">DISPLAY</div>
-        <div class="f-toggle-btns">
-          <button class="f-toggle on" id="btn-f-circles">CIRCLES: ON</button>
-          <button class="f-toggle on" id="btn-f-fade">FADE: ON</button>
+      <!-- EmuSkills -->
+      <div class="proj-card rv">
+        <div class="proj-title">EmuSkills — Skills &amp; Certifications Platform</div>
+        <p class="proj-desc">
+          Full-stack internal web app for tracking employee skills, certifications, and
+          development goals. Features dynamic dashboards, filtering, and cross-department
+          visibility. Shipped as part of a 5-person cross-functional team.
+        </p>
+        <div class="tag-row">
+          <span class="tag blue">React</span>
+          <span class="tag blue">TypeScript</span>
+          <span class="tag blue">Node.js</span>
+          <span class="tag blue">Express</span>
+          <span class="tag blue">SQL</span>
         </div>
       </div>
 
-      <div class="lab-btns">
-        <button class="lab-btn pri" id="btn-f-analyze">ANALYZE</button>
-        <button class="lab-btn sec" id="btn-f-clear">CLEAR</button>
+      <!-- Pareto Journeys -->
+      <div class="proj-card rv">
+        <div class="proj-title">Pareto Journeys</div>
+        <p class="proj-desc">
+          Career navigation platform serving <strong>1,300+ students</strong>. Led product
+          roadmap and SPA architecture with React/TypeScript/Vite. Built the "Share Journey"
+          feature with deep-linking for 600+ career cards, and fixed production 404
+          routing with custom redirect logic.
+        </p>
+        <div class="tag-row">
+          <span class="tag green">React</span>
+          <span class="tag green">TypeScript</span>
+          <span class="tag green">Vite</span>
+          <span class="tag green">Node.js</span>
+        </div>
+        <a href="https://github.com/gmieses27" target="_blank" class="proj-link">→ GitHub</a>
       </div>
 
-      <div class="lab-hint">
-        DRAW &nbsp;— trace a shape<br>
-        ANALYZE &nbsp;— run the DFT<br>
-        CIRCLES slider &nbsp;— change N
+      <!-- ML Fraud Detection -->
+      <div class="proj-card rv">
+        <div class="proj-title">ML Fraud Detection Pipeline</div>
+        <p class="proj-desc">
+          End-to-end ML pipeline using AdaBoostClassifier achieving
+          <strong>96% accuracy</strong> with an MCC of 73.4%.
+          Applied oversampling (SMOTE) to handle severe class imbalance in
+          high-volume financial transaction data.
+        </p>
+        <div class="tag-row">
+          <span class="tag teal">Python</span>
+          <span class="tag teal">Scikit-learn</span>
+          <span class="tag teal">Pandas</span>
+          <span class="tag teal">NumPy</span>
+          <span class="tag teal">AdaBoost</span>
+        </div>
+        <a href="https://github.com/gmieses27" target="_blank" class="proj-link">→ GitHub</a>
       </div>
+
+      <!-- Algorithmic Wallpaper Generator -->
+      <div class="proj-card rv">
+        <div class="proj-title">Algorithmic Wallpaper Generator</div>
+        <p class="proj-desc">
+          Python system generating high-resolution desktop wallpapers using procedural
+          noise, gradient logic, and symmetry-based transforms. Automated macOS wallpaper
+          updates via AppleScript/subprocess — a full visual pipeline from generation
+          to desktop.
+        </p>
+        <div class="tag-row">
+          <span class="tag teal">Python</span>
+          <span class="tag teal">NumPy</span>
+          <span class="tag teal">Matplotlib</span>
+          <span class="tag teal">AppleScript</span>
+          <span class="tag teal">Image Processing</span>
+        </div>
+        <a href="https://github.com/gmieses27" target="_blank" class="proj-link">→ GitHub</a>
+      </div>
+
+      <!-- Fourier Synthesizer — featured because it has a live demo -->
+      <div class="proj-card featured rv">
+        <div class="proj-badge">★ FEATURED — Live Demo in Demos Section</div>
+        <div class="proj-title">Fourier Series Visualizer</div>
+        <p class="proj-desc">
+          Draw any shape; watch it reconstructed by rotating epicycles using the
+          Discrete Fourier Transform — implemented from scratch with arc-length
+          resampling, O(N²) DFT, and animated frequency decomposition sorted
+          by amplitude. Same math behind JPEG, MP3, and 5G.
+        </p>
+        <div class="tag-row">
+          <span class="tag yellow">JavaScript</span>
+          <span class="tag yellow">Canvas API</span>
+          <span class="tag yellow">DFT / DSP</span>
+          <span class="tag yellow">Math</span>
+        </div>
+        <div class="proj-links-row">
+          <a href="#demos" class="proj-link">→ Live demo</a>
+          <a href="https://github.com/gmieses27/fourier-epicycles" target="_blank" class="proj-link">→ GitHub</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ SKILLS ═══════════════ -->
-<section id="skills">
-  <div class="sec-hd rv">
-    <div class="sec-tag">// CHARACTER STATS</div>
-    <h2 class="sec-title">SKILL<br><span>TREE</span></h2>
-    <div class="sec-line"></div>
+<!-- ══════════════════════════════════════════
+     EDUCATION
+     What it shows a recruiter: academic
+     foundation and leadership involvement.
+     ══════════════════════════════════════════ -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="chapter-label">03 — EDUCATION &amp; LEADERSHIP</span>
+      <h2>Academic Background</h2>
+    </div>
+
+    <div class="edu-grid">
+
+      <div class="edu-card rv">
+        <div class="edu-school">Columbia University</div>
+        <div class="edu-degree">B.A. Computer Science &amp; Statistics — Double Major</div>
+        <div class="edu-date">Expected May 2027 · New York, NY</div>
+
+        <div class="edu-divider"></div>
+        <div class="edu-sub">RELEVANT COURSEWORK</div>
+        <div class="tag-row">
+          <span class="tag">Artificial Intelligence</span>
+          <span class="tag">Natural Language Processing</span>
+          <span class="tag">Computer Graphics</span>
+          <span class="tag">Introduction to Databases</span>
+          <span class="tag">Clean OOP Design</span>
+          <span class="tag">Advanced C/C++</span>
+        </div>
+
+        <div class="edu-divider"></div>
+        <div class="edu-sub">CERTIFICATIONS</div>
+        <div class="tag-row">
+          <span class="tag green">Google ML Crash Course</span>
+          <span class="tag green">Coursera ML — Andrew Ng</span>
+          <span class="tag green">Applied ML in Python</span>
+        </div>
+
+        <div class="edu-divider"></div>
+        <div class="edu-sub">ORGANIZATIONS</div>
+        <div class="tag-row">
+          <span class="tag blue">NSBE</span>
+          <span class="tag blue">Application Development Initiative</span>
+          <span class="tag blue">ColorStack</span>
+        </div>
+      </div>
+
+      <div class="lead-card rv">
+        <div class="edu-sub">LEADERSHIP</div>
+        <div class="lead-list">
+          <div class="lead-item">
+            <div class="lead-role">Vice President</div>
+            <div class="lead-org">ColorStack Columbia Chapter</div>
+            <div class="lead-date">Sep 2024 – Present</div>
+          </div>
+          <div class="lead-item">
+            <div class="lead-role">Career Prep Fellow</div>
+            <div class="lead-org">Management Leadership for Tomorrow</div>
+            <div class="lead-date">Jan 2024 – Present</div>
+          </div>
+          <div class="lead-item">
+            <div class="lead-role">SEO EDGE Participant</div>
+            <div class="lead-org">SEO Career</div>
+            <div class="lead-date">Jun 2024 – Present</div>
+          </div>
+          <div class="lead-item">
+            <div class="lead-role">Virtual Insight Series</div>
+            <div class="lead-org">Goldman Sachs</div>
+            <div class="lead-date">May – Jul 2024</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-  <div class="sk-grid">
+</section>
 
-    <div class="rv">
-      <div class="sk-cat-title">// LANGUAGES</div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">Python</span><span class="sk-lv">LVL 90</span></div><div class="sk-track"><div class="sk-fill" data-l="90"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">JavaScript / TypeScript</span><span class="sk-lv">LVL 88</span></div><div class="sk-track"><div class="sk-fill" data-l="88"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">Java</span><span class="sk-lv">LVL 80</span></div><div class="sk-track"><div class="sk-fill" data-l="80"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">Go</span><span class="sk-lv">LVL 72</span></div><div class="sk-track"><div class="sk-fill" data-l="72"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">C++</span><span class="sk-lv">LVL 65</span></div><div class="sk-track"><div class="sk-fill" data-l="65"></div></div></div>
+<!-- ══════════════════════════════════════════
+     INTERACTIVE DEMOS
+     What it shows a recruiter: technical depth
+     beyond what a bullet point can convey.
+     ══════════════════════════════════════════ -->
+<section id="demos">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="chapter-label">04 — INTERACTIVE DEMOS</span>
+      <h2>Live Technical Demos</h2>
+      <p class="section-desc">Two of my projects ported to run live in the browser. Drag, draw, and explore.</p>
     </div>
 
-    <div class="rv">
-      <div class="sk-cat-title">// FRONTEND</div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">React / React Native</span><span class="sk-lv">LVL 88</span></div><div class="sk-track"><div class="sk-fill" data-l="88"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">HTML / CSS</span><span class="sk-lv">LVL 86</span></div><div class="sk-track"><div class="sk-fill" data-l="86"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">Canvas / WebGL</span><span class="sk-lv">LVL 74</span></div><div class="sk-track"><div class="sk-fill" data-l="74"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">TypeScript</span><span class="sk-lv">LVL 80</span></div><div class="sk-track"><div class="sk-fill" data-l="80"></div></div></div>
+    <!-- Demo 1: Plant Generator -->
+    <div class="demo-block rv">
+      <div class="demo-title-row">
+        <div class="demo-title">Plant Generator</div>
+        <a href="https://github.com/gmieses27/personal_portfolio/blob/main/js/plant-generator.js" target="_blank" class="demo-source-link">[ source ]</a>
+      </div>
+      <div class="demo-subtitle">
+        Originally built in C++ / OpenGL as a Computer Graphics final project.
+        Ported to Canvas + JavaScript — same L-System engine, same 3D turtle interpreter.
+      </div>
+      <div class="lab-wrap">
+        <canvas id="tree-canvas"></canvas>
+        <div class="lab-panel">
+          <div class="lab-panel-title">// PARAMETERS</div>
+
+          <div class="ctrl-group">
+            <div class="ctrl-label">PRESET <span id="lbl-preset">Fractal Tree</span></div>
+            <select class="lab-select" id="ctrl-preset">
+              <option>Fractal Tree</option>
+              <option>Bushy Tree</option>
+              <option>Sparse Tree</option>
+              <option>Willow Tree</option>
+              <option>Vine</option>
+              <option>Symmetric Tree</option>
+              <option>Seaweed</option>
+              <option>Complex Tree</option>
+              <option>Binary Tree</option>
+            </select>
+          </div>
+          <div class="ctrl-group">
+            <div class="ctrl-label">ITERATIONS <span id="lbl-iter">5</span></div>
+            <input type="range" id="ctrl-iter" min="2" max="7" step="1" value="5">
+          </div>
+          <div class="ctrl-group">
+            <div class="ctrl-label">ANGLE <span id="lbl-angle">25.7°</span></div>
+            <input type="range" id="ctrl-angle" min="5" max="60" step="0.5" value="25.7">
+          </div>
+          <div class="ctrl-group">
+            <div class="ctrl-label">LENGTH SCALE <span id="lbl-lscale">0.80</span></div>
+            <input type="range" id="ctrl-lscale" min="0.5" max="0.99" step="0.01" value="0.80">
+          </div>
+          <div class="ctrl-group">
+            <div class="ctrl-label">RANDOMNESS <span id="lbl-rand">0.10</span></div>
+            <input type="range" id="ctrl-rand" min="0" max="0.5" step="0.01" value="0.10">
+          </div>
+          <div class="ctrl-divider"></div>
+          <div class="ctrl-group">
+            <div class="ctrl-label">WIND <span id="lbl-wind">0.30</span></div>
+            <input type="range" id="ctrl-wind" min="0" max="1.5" step="0.05" value="0.30">
+          </div>
+          <div class="ctrl-group">
+            <div class="ctrl-label">SEASON</div>
+            <div class="season-btns">
+              <button class="sbn spring on" data-season="spring">🌸 SPRING</button>
+              <button class="sbn summer"    data-season="summer">☀️ SUMMER</button>
+              <button class="sbn autumn"    data-season="autumn">🍂 AUTUMN</button>
+              <button class="sbn winter"    data-season="winter">❄️ WINTER</button>
+            </div>
+          </div>
+          <div class="lab-btns">
+            <button class="lab-btn pri" id="btn-regen">REGENERATE</button>
+            <button class="lab-btn sec" id="btn-reset-cam">RESET CAM</button>
+          </div>
+          <div class="lab-hint">
+            DRAG — rotate view<br>
+            SCROLL — zoom<br>
+            SPACE — new seed
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="rv">
-      <div class="sk-cat-title">// BACKEND &amp; INFRA</div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">Node.js / Express</span><span class="sk-lv">LVL 85</span></div><div class="sk-track"><div class="sk-fill" data-l="85"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">PostgreSQL / MongoDB</span><span class="sk-lv">LVL 78</span></div><div class="sk-track"><div class="sk-fill" data-l="78"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">REST APIs / WebSockets</span><span class="sk-lv">LVL 86</span></div><div class="sk-track"><div class="sk-fill" data-l="86"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">Kubernetes / Docker</span><span class="sk-lv">LVL 68</span></div><div class="sk-track"><div class="sk-fill" data-l="68"></div></div></div>
-    </div>
+    <!-- Demo 2: Fourier Synthesizer -->
+    <div class="demo-block rv">
+      <div class="demo-title-row">
+        <div class="demo-title">Fourier Series Synthesizer</div>
+        <a href="https://github.com/gmieses27/fourier-epicycles" target="_blank" class="demo-source-link">[ source ]</a>
+      </div>
+      <div class="demo-subtitle">
+        Draw any shape; watch it reconstructed by rotating circles (epicycles) via the
+        Discrete Fourier Transform — the same math behind JPEG, MP3, and signal processing.
+      </div>
+      <div id="f-mode-indicator" class="f-mode-indicator draw">
+        // MODE: DRAW — Trace any shape on the canvas
+      </div>
+      <div class="lab-wrap">
+        <canvas id="fourier-canvas"></canvas>
+        <div class="lab-panel">
+          <div class="lab-panel-title">// PARAMETERS</div>
 
-    <div class="rv">
-      <div class="sk-cat-title">// DOMAINS</div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">Full-Stack Development</span><span class="sk-lv">LVL 90</span></div><div class="sk-track"><div class="sk-fill" data-l="90"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">Game Development</span><span class="sk-lv">LVL 80</span></div><div class="sk-track"><div class="sk-fill" data-l="80"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">Machine Learning / AI</span><span class="sk-lv">LVL 72</span></div><div class="sk-track"><div class="sk-fill" data-l="72"></div></div></div>
-      <div class="sk-item"><div class="sk-row"><span class="sk-name">Systems / Networking</span><span class="sk-lv">LVL 70</span></div><div class="sk-track"><div class="sk-fill" data-l="70"></div></div></div>
+          <div class="ctrl-group">
+            <div class="ctrl-label">CIRCLES <span id="lbl-f-circles">64</span></div>
+            <input type="range" id="ctrl-f-circles" min="4" max="256" step="4" value="64">
+          </div>
+          <div class="ctrl-group">
+            <div class="ctrl-label">SPEED <span id="lbl-f-speed">1.0x</span></div>
+            <input type="range" id="ctrl-f-speed" min="0.2" max="4.0" step="0.2" value="1.0">
+          </div>
+          <div class="ctrl-divider"></div>
+          <div class="ctrl-group">
+            <div class="ctrl-label">DISPLAY</div>
+            <div class="f-toggle-btns">
+              <button class="f-toggle on" id="btn-f-circles">CIRCLES: ON</button>
+              <button class="f-toggle on" id="btn-f-fade">FADE: ON</button>
+            </div>
+          </div>
+          <div class="lab-btns">
+            <button class="lab-btn pri" id="btn-f-analyze">ANALYZE</button>
+            <button class="lab-btn sec" id="btn-f-clear">CLEAR</button>
+          </div>
+          <div class="lab-hint">
+            DRAW — trace a shape<br>
+            ANALYZE — run DFT<br>
+            CIRCLES — change N
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
 
-<!-- ═══════════════ ABOUT ═══════════════ -->
-<section id="about">
-  <div class="sec-hd rv">
-    <div class="sec-tag">// PLAYER PROFILE</div>
-    <h2 class="sec-title">ABOUT<br><span>ME</span></h2>
-    <div class="sec-line"></div>
-  </div>
-  <div class="about-grid">
-    <div class="rv">
-      <p class="about-p">I'm <strong>Gabriel Mieses</strong> — a software engineer who builds things at the intersection of systems, games, and the web. From bullet hell engines to access enforcement infrastructure at Datadog, I care about making software that actually works and is genuinely fun to use.</p>
-      <p class="about-p">My work spans <strong>full-stack web</strong>, <strong>game development</strong>, <strong>AI tooling</strong>, and <strong>distributed systems</strong>. I'm most energized when a project blurs the line between technical depth and creative expression.</p>
-      <p class="about-p">Currently looking for my next opportunity — whether that's shipping products, building infrastructure, or designing something that hasn't been built yet.</p>
-      <div class="about-btns">
-        <a href="https://github.com/gmieses27" target="_blank" class="btn btn-g">GITHUB</a>
-        <a href="mailto:gabrielmieses99@gmail.com" class="btn btn-c">EMAIL</a>
-      </div>
-    </div>
-    <div class="char-sheet rv">
-      <div class="cs-hdr"><span>CHARACTER_SHEET.json</span><span>v2.0</span></div>
-      <div class="cs-name">GABRIEL</div>
-      <div class="cs-class">FULL-STACK // GAME DEV // AI</div>
-      <div class="cs-stats">
-        <div class="cs-stat"><div class="cs-stat-l">Status</div><div class="cs-stat-v" style="color:var(--green)">Available</div></div>
-        <div class="cs-stat"><div class="cs-stat-l">GitHub</div><div class="cs-stat-v">gmieses27</div></div>
-        <div class="cs-stat"><div class="cs-stat-l">Experience</div><div class="cs-stat-v">Datadog (Intern)</div></div>
-        <div class="cs-stat"><div class="cs-stat-l">Projects</div><div class="cs-stat-v">16+</div></div>
-        <div class="cs-stat"><div class="cs-stat-l">Focus</div><div class="cs-stat-v">Web + Systems</div></div>
-        <div class="cs-stat"><div class="cs-stat-l">Superpower</div><div class="cs-stat-v">Game Dev</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ CONTACT ═══════════════ -->
+<!-- ══════════════════════════════════════════
+     CONTACT
+     ══════════════════════════════════════════ -->
 <section id="contact">
-  <div class="sec-hd rv">
-    <div class="sec-tag">// ESTABLISH COMMS</div>
-    <h2 class="sec-title">CONTACT<br><span>HQ</span></h2>
-    <div class="sec-line"></div>
-  </div>
-  <div class="terminal rv">
-    <div class="t-bar">
-      <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
-      <span class="t-title">gabriel@portfolio ~ contact</span>
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="chapter-label">05 — CONTACT</span>
+      <h2>Get In Touch</h2>
+      <p class="section-desc">Open to Summer 2026 internships. I respond within 24 hours.</p>
     </div>
-    <div class="t-body">
-      <div><span class="tp">❯ </span><span class="tc">whoami</span></div>
-      <div class="to">Gabriel Mieses — Software Engineer</div>
-      <br>
-      <div><span class="tp">❯ </span><span class="tc">cat contact.json</span></div>
-      <div class="to">{</div>
-      <div class="to">&nbsp;&nbsp;"email"&nbsp;&nbsp;&nbsp;&nbsp;: "<a href="mailto:gabrielmieses99@gmail.com" class="tl">gabrielmieses99@gmail.com</a>",</div>
-      <div class="to">&nbsp;&nbsp;"github"&nbsp;&nbsp;&nbsp;: "<a href="https://github.com/gmieses27" target="_blank" class="tl">github.com/gmieses27</a>",</div>
-      <div class="to">&nbsp;&nbsp;"status"&nbsp;&nbsp;&nbsp;: "open_to_opportunities",</div>
-      <div class="to">&nbsp;&nbsp;"response" : "&lt; 24h"</div>
-      <div class="to">}</div>
-      <br>
-      <div><span class="tp">❯ </span><span class="t-cursor">_</span></div>
+    <div class="contact-row rv">
+      <a href="mailto:gabrielmieses99@gmail.com" class="contact-card">
+        <div class="contact-icon">✉</div>
+        <div class="contact-label">EMAIL</div>
+        <div class="contact-value">gabrielmieses99@gmail.com</div>
+      </a>
+      <a href="https://linkedin.com/in/gabriel-mieses" target="_blank" class="contact-card">
+        <div class="contact-icon">in</div>
+        <div class="contact-label">LINKEDIN</div>
+        <div class="contact-value">gabriel-mieses</div>
+      </a>
+      <a href="https://github.com/gmieses27" target="_blank" class="contact-card">
+        <div class="contact-icon">gh</div>
+        <div class="contact-label">GITHUB</div>
+        <div class="contact-value">gmieses27</div>
+      </a>
     </div>
   </div>
 </section>
 
-<footer>GABRIEL MIESES // PORTFOLIO // 2025 &nbsp;|&nbsp; BUILT WITH ♥ + CODE</footer>
+<footer>GABRIEL MIESES &nbsp;·&nbsp; COLUMBIA CS + STATS '27 &nbsp;·&nbsp; 2025</footer>
 
+<script src="js/main.js"></script>
 <script src="js/plant-generator.js"></script>
 <script src="js/fourier.js"></script>
-<script src="js/main.js"></script>
 </body>
 </html>
