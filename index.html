@@ -163,6 +163,29 @@
 
     <div class="proj-grid">
 
+      <!-- Arbiter — featured because it has a live demo -->
+      <div class="proj-card featured rv">
+        <div class="proj-badge">★ FEATURED — Live Demo in Demos Section</div>
+        <div class="proj-title">Arbiter — Authorization Gateway</div>
+        <p class="proj-desc">
+          HTTP reverse proxy that enforces RBAC policies before requests hit backends.
+          Resolves caller identity from JWT or API key, evaluates rules via a
+          thread-safe policy engine (deny overrides allow), and proxies or rejects.
+          Hot-reloads policies on SIGHUP — no restart needed.
+        </p>
+        <div class="tag-row">
+          <span class="tag yellow">Go</span>
+          <span class="tag yellow">RBAC / AuthZ</span>
+          <span class="tag yellow">Reverse Proxy</span>
+          <span class="tag yellow">SSE</span>
+          <span class="tag yellow">JWT</span>
+        </div>
+        <div class="proj-links-row">
+          <a href="#demos" class="proj-link">→ Live demo</a>
+          <a href="https://github.com/gmieses27/AuthGateway-arbiter" target="_blank" class="proj-link">→ GitHub</a>
+        </div>
+      </div>
+
       <!-- Plant Generation Engine — featured because it has a live demo -->
       <div class="proj-card featured rv">
         <div class="proj-badge">★ FEATURED — Live Demo in Demos Section</div>
@@ -375,6 +398,67 @@
       <p class="section-desc">Two of my projects ported to run live in the browser. Drag, draw, and explore.</p>
     </div>
 
+    <!-- Demo 0: Arbiter Gateway -->
+    <div class="demo-block rv">
+      <div class="demo-title-row">
+        <div class="demo-title">Arbiter — Authorization Gateway</div>
+        <a href="https://github.com/gmieses27/AuthGateway-arbiter" target="_blank" class="demo-source-link">[ source ]</a>
+      </div>
+      <div class="demo-subtitle">
+        An HTTP gateway that enforces access-control policies before requests reach backend services.
+        Watch requests being evaluated, allowed, and denied in real time based on identity and role.
+      </div>
+      <div class="arbiter-demo" id="arbiter-demo">
+        <div class="arbiter-layout">
+
+          <!-- Left: request builder -->
+          <div class="arbiter-panel">
+            <div class="arbiter-panel-title">// SEND REQUEST</div>
+            <div class="ctrl-group">
+              <div class="ctrl-label">IDENTITY</div>
+              <select class="lab-select" id="arb-identity">
+                <option value="admin">admin-key-demo  (role: admin)</option>
+                <option value="viewer">viewer-key-demo  (role: viewer)</option>
+                <option value="service">svc-internal-key  (role: service)</option>
+                <option value="anon">— anonymous —</option>
+              </select>
+            </div>
+            <div class="ctrl-group">
+              <div class="ctrl-label">METHOD</div>
+              <select class="lab-select" id="arb-method">
+                <option>GET</option>
+                <option>POST</option>
+                <option>DELETE</option>
+              </select>
+            </div>
+            <div class="ctrl-group">
+              <div class="ctrl-label">PATH</div>
+              <select class="lab-select" id="arb-path">
+                <option>/api/users</option>
+                <option>/api/nuclear</option>
+                <option>/admin/settings</option>
+                <option>/health</option>
+                <option>/api/reports</option>
+              </select>
+            </div>
+            <button class="lab-btn pri" id="arb-send">SEND REQUEST</button>
+            <button class="lab-btn sec" id="arb-flood">AUTO-FLOOD</button>
+            <div class="arbiter-policy-note" id="arb-verdict"></div>
+          </div>
+
+          <!-- Right: live feed -->
+          <div class="arbiter-feed-wrap">
+            <div class="arbiter-feed-header">
+              <span>LIVE REQUEST FEED</span>
+              <span id="arb-stats" style="color:var(--dim)">0 total</span>
+            </div>
+            <div class="arbiter-feed" id="arb-feed"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
     <!-- Demo 1: Plant Generator -->
     <div class="demo-block rv">
       <div class="demo-title-row">
@@ -481,13 +565,23 @@
               <button class="f-toggle on" id="btn-f-fade">FADE: ON</button>
             </div>
           </div>
+          <div class="ctrl-divider"></div>
+          <div class="ctrl-group">
+            <div class="ctrl-label">PRESETS</div>
+            <div class="f-preset-btns">
+              <button class="f-preset" onclick="window._fourierPresets?.heart()">♥ HEART</button>
+              <button class="f-preset" onclick="window._fourierPresets?.star()">★ STAR</button>
+              <button class="f-preset" onclick="window._fourierPresets?.trefoil()">✦ TREFOIL</button>
+              <button class="f-preset" onclick="window._fourierPresets?.lissajous()">∞ LISSAJOUS</button>
+            </div>
+          </div>
           <div class="lab-btns">
             <button class="lab-btn pri" id="btn-f-analyze">ANALYZE</button>
             <button class="lab-btn sec" id="btn-f-clear">CLEAR</button>
           </div>
           <div class="lab-hint">
             DRAW — trace a shape<br>
-            ANALYZE — run DFT<br>
+            PRESETS — instant shapes<br>
             CIRCLES — change N
           </div>
         </div>
@@ -532,5 +626,6 @@
 <script src="js/main.js"></script>
 <script src="js/plant-generator.js"></script>
 <script src="js/fourier.js"></script>
+<script src="js/arbiter-demo.js"></script>
 </body>
 </html>

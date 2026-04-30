@@ -226,6 +226,75 @@
       : '// MODE: ANIMATE — Fourier epicycles running';
   }
 
+  // ── Preset curve generators ──
+  function makeHeart(scale) {
+    const pts = [], N = 200;
+    for (let i = 0; i < N; i++) {
+      const t = (2 * Math.PI * i / N) - Math.PI;
+      pts.push({
+        x:  scale * 16 * Math.pow(Math.sin(t), 3),
+        y: -scale * (13*Math.cos(t) - 5*Math.cos(2*t) - 2*Math.cos(3*t) - Math.cos(4*t))
+      });
+    }
+    return pts;
+  }
+
+  function makeStar(scale, n = 5) {
+    const pts = [], steps = 20;
+    const corners = [];
+    for (let i = 0; i <= n * 2; i++) {
+      const angle = (Math.PI * i / n) - Math.PI/2;
+      const r = (i % 2 === 0) ? scale : scale * 0.42;
+      corners.push({ x: r * Math.cos(angle), y: r * Math.sin(angle) });
+    }
+    for (let i = 0; i < corners.length - 1; i++) {
+      const P = corners[i], Q = corners[i+1];
+      for (let s = 0; s < steps; s++) {
+        const t = s / steps;
+        pts.push({ x: P.x + t*(Q.x-P.x), y: P.y + t*(Q.y-P.y) });
+      }
+    }
+    return pts;
+  }
+
+  function makeTrefoil(scale) {
+    const pts = [], N = 210;
+    for (let i = 0; i < N; i++) {
+      const t = Math.PI * i / N; // t in [0, π] for a closed 3-petal rose
+      const r = Math.cos(3 * t);
+      pts.push({ x: scale * r * Math.cos(t), y: scale * r * Math.sin(t) });
+    }
+    return pts;
+  }
+
+  function makeLissajous(scale, a = 3, b = 2) {
+    const pts = [], N = 300;
+    for (let i = 0; i < N; i++) {
+      const t = 2 * Math.PI * i / N;
+      pts.push({ x: scale * Math.sin(a * t + Math.PI/2), y: scale * Math.sin(b * t) });
+    }
+    return pts;
+  }
+
+  function loadPreset(normPts) {
+    if (animReq) { cancelAnimationFrame(animReq); animReq = null; }
+    resize();
+    const cx = canvas.width / 2, cy = canvas.height / 2;
+    rawPts = normPts.map(p => ({ x: cx + p.x, y: cy + p.y }));
+    mode = 'draw';
+    canvas.classList.remove('animating');
+    updateModeUI();
+    analyze();
+  }
+
+  const _S = () => Math.min(canvas.width || 400, canvas.height || 300);
+  window._fourierPresets = {
+    heart:     () => loadPreset(makeHeart(_S() / 40)),
+    star:      () => loadPreset(makeStar(_S() * 0.38)),
+    trefoil:   () => loadPreset(makeTrefoil(_S() * 0.40)),
+    lissajous: () => loadPreset(makeLissajous(_S() * 0.40)),
+  };
+
   // ── Input helpers ──
   function getPos(e) {
     const r   = canvas.getBoundingClientRect();
@@ -271,11 +340,15 @@
   });
 
   // ── Lazy activation via IntersectionObserver ──
+  let _autoLoaded = false;
   const fObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         resize();
-        if (mode === 'draw') renderDraw();
+        if (!_autoLoaded && rawPts.length === 0) {
+          _autoLoaded = true;
+          setTimeout(() => loadPreset(makeHeart(_S() / 40)), 350);
+        } else if (mode === 'draw') renderDraw();
         else if (!animReq) animReq = requestAnimationFrame(renderAnimate);
       } else {
         if (animReq) { cancelAnimationFrame(animReq); animReq = null; }
