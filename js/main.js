@@ -18,6 +18,9 @@ document.querySelectorAll('.rv').forEach(el => revealObserver.observe(el));
 const navLinks  = document.querySelectorAll('.nav-links a');
 const sections  = document.querySelectorAll('section[id]');
 
+// rootMargin shrinks the detection zone to a band 15%–40% from the top of
+// the viewport, so any section that enters that band becomes "active" —
+// regardless of how tall the section is relative to the viewport.
 const navObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -26,7 +29,7 @@ const navObserver = new IntersectionObserver(entries => {
       });
     }
   });
-}, { threshold: 0.35 });
+}, { rootMargin: '-15% 0px -55% 0px', threshold: 0 });
 
 sections.forEach(s => navObserver.observe(s));
 

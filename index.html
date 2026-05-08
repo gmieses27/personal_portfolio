@@ -184,8 +184,32 @@
           <span class="tag yellow">JWT</span>
         </div>
         <div class="proj-links-row">
-          <a href="#demos" class="proj-link">→ Live demo</a>
+          <a href="#demo-arbiter" class="proj-link">→ Live demo</a>
           <a href="https://github.com/gmieses27/AuthGateway-arbiter" target="_blank" class="proj-link">→ GitHub</a>
+        </div>
+      </div>
+
+      <!-- Distributed KV Store — featured because it has a live demo -->
+      <div class="proj-card featured rv">
+        <div class="proj-badge">★ FEATURED — Live Demo in Demos Section</div>
+        <div class="proj-title">Distributed Key-Value Store</div>
+        <p class="proj-desc">
+          Fault-tolerant distributed database built from scratch in Go, implementing the
+          Raft consensus algorithm. Three nodes coordinate over HTTP to elect a leader,
+          replicate every write through a shared log, and recover automatically after
+          crashes or network partitions. Includes a real-time cluster dashboard with
+          live role visualization and interactive partition controls.
+        </p>
+        <div class="tag-row">
+          <span class="tag yellow">Go</span>
+          <span class="tag yellow">Raft Consensus</span>
+          <span class="tag yellow">Distributed Systems</span>
+          <span class="tag yellow">SSE</span>
+          <span class="tag yellow">HTTP</span>
+        </div>
+        <div class="proj-links-row">
+          <a href="#rd-demo-block" class="proj-link">→ Live demo</a>
+          <a href="https://github.com/gmieses27/distributed-key-value-store" target="_blank" class="proj-link">→ GitHub</a>
         </div>
       </div>
 
@@ -207,63 +231,9 @@
           <span class="tag yellow">Procedural Gen</span>
         </div>
         <div class="proj-links-row">
-          <a href="#demos" class="proj-link">→ Live demo</a>
+          <a href="#demo-plant" class="proj-link">→ Live demo</a>
           <a href="https://github.com/gmieses27/personal_portfolio/blob/main/js/plant-generator.js" target="_blank" class="proj-link">→ JS source</a>
         </div>
-      </div>
-
-      <!-- EmuSkills -->
-      <div class="proj-card rv">
-        <div class="proj-title">EmuSkills — Skills &amp; Certifications Platform</div>
-        <p class="proj-desc">
-          Full-stack internal web app for tracking employee skills, certifications, and
-          development goals. Features dynamic dashboards, filtering, and cross-department
-          visibility. Shipped as part of a 5-person cross-functional team.
-        </p>
-        <div class="tag-row">
-          <span class="tag blue">React</span>
-          <span class="tag blue">TypeScript</span>
-          <span class="tag blue">Node.js</span>
-          <span class="tag blue">Express</span>
-          <span class="tag blue">SQL</span>
-        </div>
-      </div>
-
-      <!-- Pareto Journeys -->
-      <div class="proj-card rv">
-        <div class="proj-title">Pareto Journeys</div>
-        <p class="proj-desc">
-          Career navigation platform serving <strong>1,300+ students</strong>. Led product
-          roadmap and SPA architecture with React/TypeScript/Vite. Built the "Share Journey"
-          feature with deep-linking for 600+ career cards, and fixed production 404
-          routing with custom redirect logic.
-        </p>
-        <div class="tag-row">
-          <span class="tag green">React</span>
-          <span class="tag green">TypeScript</span>
-          <span class="tag green">Vite</span>
-          <span class="tag green">Node.js</span>
-        </div>
-        <a href="https://github.com/gmieses27" target="_blank" class="proj-link">→ GitHub</a>
-      </div>
-
-      <!-- ML Fraud Detection -->
-      <div class="proj-card rv">
-        <div class="proj-title">ML Fraud Detection Pipeline</div>
-        <p class="proj-desc">
-          End-to-end ML pipeline using AdaBoostClassifier achieving
-          <strong>96% accuracy</strong> with an MCC of 73.4%.
-          Applied oversampling (SMOTE) to handle severe class imbalance in
-          high-volume financial transaction data.
-        </p>
-        <div class="tag-row">
-          <span class="tag teal">Python</span>
-          <span class="tag teal">Scikit-learn</span>
-          <span class="tag teal">Pandas</span>
-          <span class="tag teal">NumPy</span>
-          <span class="tag teal">AdaBoost</span>
-        </div>
-        <a href="https://github.com/gmieses27" target="_blank" class="proj-link">→ GitHub</a>
       </div>
 
       <!-- Algorithmic Wallpaper Generator -->
@@ -282,7 +252,7 @@
           <span class="tag teal">AppleScript</span>
           <span class="tag teal">Image Processing</span>
         </div>
-        <a href="https://github.com/gmieses27" target="_blank" class="proj-link">→ GitHub</a>
+        <a href="https://github.com/gmieses27/macWallpaper" target="_blank" class="proj-link">→ GitHub</a>
       </div>
 
       <!-- Fourier Synthesizer — featured because it has a live demo -->
@@ -302,7 +272,7 @@
           <span class="tag yellow">Math</span>
         </div>
         <div class="proj-links-row">
-          <a href="#demos" class="proj-link">→ Live demo</a>
+          <a href="#demo-fourier" class="proj-link">→ Live demo</a>
           <a href="https://github.com/gmieses27/fourier-epicycles" target="_blank" class="proj-link">→ GitHub</a>
         </div>
       </div>
@@ -398,11 +368,11 @@
     <div class="section-header">
       <span class="chapter-label">04 — INTERACTIVE DEMOS</span>
       <h2>Live Technical Demos</h2>
-      <p class="section-desc">Two of my projects ported to run live in the browser. Drag, draw, and explore.</p>
+      <p class="section-desc">Three of my projects running live in the browser. Drag, draw, and explore.</p>
     </div>
 
     <!-- Demo 0: Arbiter Gateway -->
-    <div class="demo-block rv">
+    <div class="demo-block rv" id="demo-arbiter">
       <div class="demo-title-row">
         <div class="demo-title">Arbiter — Authorization Gateway</div>
         <a href="https://github.com/gmieses27/AuthGateway-arbiter" target="_blank" class="demo-source-link">[ source ]</a>
@@ -463,7 +433,7 @@
     </div>
 
     <!-- Demo 1: Plant Generator -->
-    <div class="demo-block rv">
+    <div class="demo-block rv" id="demo-plant">
       <div class="demo-title-row">
         <div class="demo-title">Plant Generator</div>
         <a href="https://github.com/gmieses27/personal_portfolio/blob/main/js/plant-generator.js" target="_blank" class="demo-source-link">[ source ]</a>
@@ -535,7 +505,7 @@
     </div>
 
     <!-- Demo 2: Fourier Synthesizer -->
-    <div class="demo-block rv">
+    <div class="demo-block rv" id="demo-fourier">
       <div class="demo-title-row">
         <div class="demo-title">Fourier Series Synthesizer</div>
         <a href="https://github.com/gmieses27/fourier-epicycles" target="_blank" class="demo-source-link">[ source ]</a>
@@ -592,6 +562,137 @@
       </div>
     </div>
 
+    <!-- Demo 3: Distributed KV Store (Raft Simulation) -->
+    <div class="demo-block rv" id="rd-demo-block">
+      <div class="demo-title-row">
+        <div class="demo-title">Distributed Key-Value Store</div>
+        <a href="https://github.com/gmieses27/distributed-key-value-store" target="_blank" class="demo-source-link">[ source ]</a>
+      </div>
+      <div class="demo-subtitle">
+        Three nodes running the Raft consensus algorithm — electing a leader, replicating
+        writes through a shared log, and surviving network partitions.
+        Partition any node and watch the remaining two elect a new leader within milliseconds.
+      </div>
+
+      <div class="lab-wrap">
+
+        <!-- Left: cluster visualization -->
+        <div>
+          <div class="rd-sim-note">
+            Behavioral simulation — for the real Go cluster, run
+            <a href="https://github.com/gmieses27/distributed-key-value-store" target="_blank">distributed-key-value-store</a>
+            locally with <code>./scripts/start.sh</code>
+          </div>
+
+          <svg id="rd-svg" viewBox="0 0 420 295" xmlns="http://www.w3.org/2000/svg">
+            <!-- Edges -->
+            <line x1="210" y1="58"  x2="360" y2="245" stroke="#433d6e" stroke-width="1"/>
+            <line x1="210" y1="58"  x2="60"  y2="245" stroke="#433d6e" stroke-width="1"/>
+            <line x1="360" y1="245" x2="60"  y2="245" stroke="#433d6e" stroke-width="1"/>
+
+            <!-- Animated message layer -->
+            <g id="rd-anim-layer"></g>
+
+            <!-- Node 1 (top) -->
+            <circle id="rd-ring-1" cx="210" cy="58" r="36" fill="none" stroke="#3cc0a0" stroke-width="2" opacity="0.18"/>
+            <circle id="rd-bg-1"   cx="210" cy="58" r="28" fill="#1c1a2e" stroke="#3cc0a0" stroke-width="2"/>
+            <text id="rd-role-1" x="210" y="54" text-anchor="middle" fill="#3cc0a0" font-size="7.5" font-family="monospace" letter-spacing="1">FOLLOWER</text>
+            <text x="210" y="65" text-anchor="middle" fill="#ede8d0" font-size="11" font-weight="bold" font-family="monospace">N1</text>
+            <text id="rd-term-1" x="210" y="76" text-anchor="middle" fill="#8880a8" font-size="8" font-family="monospace">t:0</text>
+
+            <!-- Node 2 (bottom right) -->
+            <circle id="rd-ring-2" cx="360" cy="245" r="36" fill="none" stroke="#3cc0a0" stroke-width="2" opacity="0.18"/>
+            <circle id="rd-bg-2"   cx="360" cy="245" r="28" fill="#1c1a2e" stroke="#3cc0a0" stroke-width="2"/>
+            <text id="rd-role-2" x="360" y="241" text-anchor="middle" fill="#3cc0a0" font-size="7.5" font-family="monospace" letter-spacing="1">FOLLOWER</text>
+            <text x="360" y="252" text-anchor="middle" fill="#ede8d0" font-size="11" font-weight="bold" font-family="monospace">N2</text>
+            <text id="rd-term-2" x="360" y="263" text-anchor="middle" fill="#8880a8" font-size="8" font-family="monospace">t:0</text>
+
+            <!-- Node 3 (bottom left) -->
+            <circle id="rd-ring-3" cx="60" cy="245" r="36" fill="none" stroke="#3cc0a0" stroke-width="2" opacity="0.18"/>
+            <circle id="rd-bg-3"   cx="60"  cy="245" r="28" fill="#1c1a2e" stroke="#3cc0a0" stroke-width="2"/>
+            <text id="rd-role-3" x="60"  y="241" text-anchor="middle" fill="#3cc0a0" font-size="7.5" font-family="monospace" letter-spacing="1">FOLLOWER</text>
+            <text x="60"  y="252" text-anchor="middle" fill="#ede8d0" font-size="11" font-weight="bold" font-family="monospace">N3</text>
+            <text id="rd-term-3" x="60"  y="263" text-anchor="middle" fill="#8880a8" font-size="8" font-family="monospace">t:0</text>
+          </svg>
+
+          <!-- Legend -->
+          <div class="rd-legend">
+            <div class="rd-legend-item"><div class="rd-legend-dot" style="background:#f5c842;box-shadow:0 0 5px #f5c842"></div>Leader</div>
+            <div class="rd-legend-item"><div class="rd-legend-dot" style="background:#3cc0a0"></div>Follower</div>
+            <div class="rd-legend-item"><div class="rd-legend-dot" style="background:#f07040"></div>Candidate</div>
+            <div class="rd-legend-item"><div class="rd-legend-dot" style="background:#605c80"></div>Partitioned</div>
+          </div>
+
+          <!-- Partition controls -->
+          <div class="rd-partition-row">
+            <div class="rd-part-group">
+              Node 1
+              <button class="lab-btn sec" id="rd-pause-1">PARTITION</button>
+              <button class="lab-btn pri" id="rd-resume-1">RECONNECT</button>
+            </div>
+            <div class="rd-part-group">
+              Node 2
+              <button class="lab-btn sec" id="rd-pause-2">PARTITION</button>
+              <button class="lab-btn pri" id="rd-resume-2">RECONNECT</button>
+            </div>
+            <div class="rd-part-group">
+              Node 3
+              <button class="lab-btn sec" id="rd-pause-3">PARTITION</button>
+              <button class="lab-btn pri" id="rd-resume-3">RECONNECT</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: control panel -->
+        <div class="lab-panel">
+          <div class="lab-panel-title">// CONTROLS</div>
+
+          <div class="ctrl-group">
+            <div class="ctrl-label">PUT</div>
+            <div style="display:flex;gap:4px;margin-top:4px">
+              <input id="rd-put-key" type="text" class="lab-select" placeholder="key" style="flex:1;padding:5px 7px" spellcheck="false">
+              <input id="rd-put-val" type="text" class="lab-select" placeholder="value" style="flex:1;padding:5px 7px" spellcheck="false">
+              <button class="lab-btn pri" id="rd-put-btn" style="flex:none;padding:5px 10px">▶</button>
+            </div>
+          </div>
+
+          <div class="ctrl-group">
+            <div class="ctrl-label">GET</div>
+            <div style="display:flex;gap:4px;margin-top:4px">
+              <input id="rd-get-key" type="text" class="lab-select" placeholder="key" style="flex:1;padding:5px 7px" spellcheck="false">
+              <button class="lab-btn sec" id="rd-get-btn" style="flex:none;padding:5px 10px">▶</button>
+            </div>
+          </div>
+
+          <div id="rd-result" class="result-box" style="margin-top:6px">—</div>
+
+          <div class="ctrl-divider"></div>
+
+          <div class="ctrl-label">REPLICATED LOG</div>
+          <div class="rd-log-list" id="rd-log" style="margin-top:4px"></div>
+
+          <div class="ctrl-label" style="margin-top:10px">STORE STATE</div>
+          <div class="rd-kv-grid" id="rd-kv" style="margin-top:4px">
+            <span style="color:var(--dim);font-size:10px">empty</span>
+          </div>
+
+          <div class="ctrl-divider"></div>
+
+          <div class="lab-btns">
+            <button class="lab-btn sec" id="rd-reset-btn">RESET CLUSTER</button>
+          </div>
+
+          <div class="lab-hint">
+            PARTITION — simulate crash<br>
+            RECONNECT — rejoin cluster<br>
+            PUT — replicate a write<br>
+            Term (t:N) — election counter
+          </div>
+        </div>
+
+      </div>
+    </div><!-- end Demo 3: Raft -->
+
   </div>
 </section>
 
@@ -603,21 +704,33 @@
     <div class="section-header">
       <span class="chapter-label">05 — CONTACT</span>
       <h2>Get In Touch</h2>
-      <p class="section-desc">Open to Summer 2026 internships. I respond within 24 hours.</p>
+      <p class="section-desc">I respond within 24 hours.</p>
     </div>
     <div class="contact-row rv">
       <a href="mailto:gabrielmieses99@gmail.com" class="contact-card">
-        <div class="contact-icon">✉</div>
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+            <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </div>
         <div class="contact-label">EMAIL</div>
         <div class="contact-value">gabrielmieses99@gmail.com</div>
       </a>
       <a href="https://linkedin.com/in/gabriel-mieses" target="_blank" class="contact-card">
-        <div class="contact-icon">in</div>
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </div>
         <div class="contact-label">LINKEDIN</div>
         <div class="contact-value">gabriel-mieses</div>
       </a>
       <a href="https://github.com/gmieses27" target="_blank" class="contact-card">
-        <div class="contact-icon">gh</div>
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </div>
         <div class="contact-label">GITHUB</div>
         <div class="contact-value">gmieses27</div>
       </a>
@@ -631,5 +744,6 @@
 <script src="js/plant-generator.js"></script>
 <script src="js/fourier.js"></script>
 <script src="js/arbiter-demo.js"></script>
+<script src="js/raft-demo.js"></script>
 </body>
 </html>
